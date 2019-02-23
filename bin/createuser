@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eo > /dev/null
+
+LPREF='date +%Y.%m.%d-%H:%M:%S'
+
+l() {
+    echo "$($LPREF) $1"
+}
+
+l "Checking and creating user and group"
+[ -z "$CUID" ] && CUID=33
+[ -z "$CGID" ] && CGID=33
+
+sed -i '/^[^:]*:[^:]*:'"$CUID"':/d' /etc/passwd
+sed -i '/^[^:]*:[^:]*:'"$CGID"':/d' /etc/group
+addgroup -g "$CGID" acme
+adduser -D -u "$CUID" -G acme acme
+

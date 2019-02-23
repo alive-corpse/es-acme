@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  acme:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - CUID=${CUID}
+        - CGID=${CGID}
+
+    volumes:
+      - ./acme.sh:/opt/acme.sh
+      - ./certificates:/home/acme/.acme.sh
+
+    hostname: acme
+    restart: always

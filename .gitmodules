@@ -1,0 +1,6 @@
+[submodule "acme"]
+	path = acme
+	url = https://github.com/Neilpang/acme.sh.git
+[submodule "acme.sh"]
+	path = acme.sh
+	url = https://github.com/Neilpang/acme.sh.git
