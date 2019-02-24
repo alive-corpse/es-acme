@@ -9,7 +9,7 @@ ENV CGID "$CGID"
 ADD bin /usr/local/bin
 ADD acme.sh /opt/acme.sh
 
-RUN apk update && apk add curl openssl sudo
+RUN apk update && apk add curl openssl sudo && rm -rf /var/cache/apk/*
 RUN /usr/local/bin/createuser
 
 USER acme
