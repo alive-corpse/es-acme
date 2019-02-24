@@ -1,4 +1,4 @@
-# Simple to use docker container for automatically update of let's encrypt certificates with acme.sh script
+# Simple to use docker container for automatically updating of let's encrypt certificates with acme.sh script
 ### ACME.SH documentation
 For acme.sh documentation check this link: https://github.com/Neilpang/acme.sh
 
@@ -20,4 +20,3 @@ export CF_Key='yourkey'
 /opt/acme.sh/acme.sh --issue -d 'example.com' -d '*.example.com' --dns dns_cf
 ```
 Other usage examples you can find at the end of this page: https://github.com/Neilpang/acme.sh/tree/master/dnsapi
- 
