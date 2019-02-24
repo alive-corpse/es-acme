@@ -23,5 +23,8 @@ docker-compose acme exec sh
 export CF_Email='your@email.com'
 export CF_Key='yourkey'
 /opt/acme.sh/acme.sh --issue -d 'example.com' -d '*.example.com' --dns dns_cf
+# The line below is optional, it makes all the option and certificate files
+# readable and writable only for owner
+find /home/acme/acme.sh -type f ! -name .gitkeep -exec chmod 600 {} \;
 ```
 Other usage examples you can find at the end of this page: https://github.com/Neilpang/acme.sh/tree/master/dnsapi
