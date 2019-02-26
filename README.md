@@ -28,3 +28,14 @@ export CF_Key='yourkey'
 find /home/acme/acme.sh -type f ! -name .gitkeep -exec chmod 600 {} \;
 ```
 Other usage examples you can find at the end of this page: https://github.com/Neilpang/acme.sh/tree/master/dnsapi
+
+### Usage example for manual updating
+https://github.com/Neilpang/acme.sh/wiki/dns-manual-mode
+```
+docker-compose acme exec sh
+/opt/acme.sh/acme.sh --issue -d 'example.com' -d '*.example.com' --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please
+# Here you shoud make dns txt records with name _acme-challenge.example.com and keys from acme.sh output. 
+# I recommend make small ttl time for it. For example 60 seconds. After that you should just run command from line below:
+acme.sh --renew -d 'shumiloff.ru' -d '*.shumiloff.ru' --yes-I-know-dns-manual-mode-enough-go-ahead-please
+```
+After that you can remove appended dns records. Before your new certificates will expired, you should repeat this process. Autoupdating does not work for manual mode.
