@@ -14,6 +14,7 @@ cd es-acme
 # You can check this id by running 
 # id %username%
 echo -e "CUID=X\nCGID=Y" > .env 
+sudo chown -R X:Y certificates
 docker-compose up -d
 ```
 
