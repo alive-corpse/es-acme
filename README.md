@@ -19,7 +19,7 @@ docker-compose up -d
 
 ### Usage example for CloudFront:
 ```
-docker-compose acme exec sh
+docker-compose exec acme sh
 export CF_Email='your@email.com'
 export CF_Key='yourkey'
 /opt/acme.sh/acme.sh --issue -d 'example.com' -d '*.example.com' --dns dns_cf
